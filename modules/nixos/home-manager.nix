@@ -4,7 +4,7 @@ topLevel@{ inputs, ... }:
     { config, ... }:
     let
       inherit (config.networking) hostName;
-      me = import ../../../lib/me.nix;
+      me = import ../../lib/me.nix;
     in
     {
       imports = [ inputs.home-manager.nixosModules.home-manager ];

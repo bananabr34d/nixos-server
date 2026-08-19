@@ -100,6 +100,7 @@ made a primary/standby pair feel obvious instead of heroic.
 | Doc | When |
 |-----|------|
 | [docs/HOW-IT-WORKS.md](docs/HOW-IT-WORKS.md) | Mental model |
+| [docs/MODULES.md](docs/MODULES.md) | Every `flake.modules.*` name |
 | [docs/INSTALL.md](docs/INSTALL.md) | First metal |
 | [docs/ROLES.md](docs/ROLES.md) | Primary vs standby, promote |
 | [docs/DECISIONS.md](docs/DECISIONS.md) | Why this shape |

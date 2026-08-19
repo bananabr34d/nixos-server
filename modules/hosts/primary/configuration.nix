@@ -7,7 +7,7 @@
   flake.modules.nixos."nixosConfigurations/primary" = {
     imports = with inputs.self.modules.nixos; [
       bootloader
-      dev
+      home-manager
       server-base
       homelab-apps
     ];

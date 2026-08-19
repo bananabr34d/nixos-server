@@ -43,7 +43,7 @@ flake.nix
   → flake-parts + import-tree ./modules
       → nixosConfigurations.primary / .standby
       → each host imports
-            core + bootloader + dev + server-base + homelab-apps
+            core + bootloader + home-manager + server-base + homelab-apps
       → homelab-apps imports lib/homelab-modules/{options,always,primary,standby}
       → primary.nix is mkIf (role == "primary")
       → standby.nix is mkIf (role == "standby")
@@ -52,6 +52,8 @@ flake.nix
 `lib/homelab-modules/` sits *outside* `modules/` on purpose: those
 files are ordinary NixOS modules, not flake-parts fragments. That
 keeps `mkIf isPrimary` readable.
+
+The full registry (every `flake.modules.*` name) is [MODULES.md](MODULES.md).
 
 ## What to edit
 

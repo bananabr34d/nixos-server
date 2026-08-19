@@ -3,6 +3,14 @@
 An extract, not a dump. The private lab this came from runs more
 services and knows more family names than a public template should.
 
+## Hosts import `home-manager`, not `dev`
+
+The private flake (and an earlier draft of this template) used a
+wrapper chapter `flake.modules.nixos.dev` that only imported
+`home-manager`. The name was leftover and wrong on a NAS. Hosts
+import `home-manager` directly. That chapter stays out of `core` so
+a future appliance host can skip a declared user home.
+
 ## One role flag, not two flakes
 
 Primary and standby share `server-base` + `homelab-apps`. The
