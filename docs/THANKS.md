@@ -21,6 +21,7 @@ This repository is an arrangement of other people's work.
 - **[sops-nix](https://github.com/Mic92/sops-nix)** (Mic92)
 - **[Harmonia](https://github.com/nix-community/harmonia)** — a binary cache that is just a NixOS service.
 - **[nh](https://github.com/nix-community/nh)** and **[just](https://github.com/casey/just)** (Casey Rodarmor)
+- **[treefmt-nix](https://github.com/numtide/treefmt-nix)** (numtide) — `nix fmt` and a flake check
 
 ## Storage and replication
 

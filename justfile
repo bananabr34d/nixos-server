@@ -90,7 +90,7 @@ smoke *args:
     bash "{{ flake }}/scripts/smoke.sh" "${h}"
 
 check:
-    @cd "{{ flake }}" && nix flake check --no-build
+    @cd "{{ flake }}" && nix flake check
 
 update:
     cd "{{ flake }}" && nix flake update
@@ -106,6 +106,4 @@ format *paths:
     #!/usr/bin/env bash
     set -euo pipefail
     cd "{{ flake }}"
-    nix shell --inputs-from . \
-      nixpkgs#deadnix nixpkgs#statix nixpkgs#nixfmt \
-      -c bash "{{ flake }}/scripts/format-nix.sh" {{ paths }}
+    nix fmt {{ paths }}

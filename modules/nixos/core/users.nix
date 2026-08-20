@@ -16,7 +16,7 @@
         users = {
           root = {
             isSystemUser = true;
-            hashedPassword = me.hashedPassword;
+            inherit (me) hashedPassword;
           };
 
           ${me.username} = {
@@ -24,7 +24,7 @@
             uid = 1000;
             description = me.fullName;
             extraGroups = [ "wheel" ];
-            hashedPassword = me.hashedPassword;
+            inherit (me) hashedPassword;
             shell = pkgs.zsh;
             openssh.authorizedKeys.keys = me.extraSshKeys;
           };

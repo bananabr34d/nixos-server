@@ -5,7 +5,12 @@
   lib,
 }:
 let
-  inherit (lib) mkIf mkMerge mkOption types;
+  inherit (lib)
+    mkIf
+    mkMerge
+    mkOption
+    types
+    ;
   cfg = config.homelab;
   isPrimary = cfg.role == "primary";
   isStandby = cfg.role == "standby";

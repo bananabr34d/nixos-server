@@ -1,7 +1,12 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   h = import ../homelab.nix { inherit config pkgs lib; };
-  inherit (h) cfg host smartdNtfyMailer zpoolHealthCheck;
+  inherit (h) cfg smartdNtfyMailer zpoolHealthCheck;
   me = import ../me.nix;
 in
 {

@@ -1,7 +1,18 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   h = import ../homelab.nix { inherit config pkgs lib; };
-  inherit (h) cfg isPrimary host fqdn mkIf;
+  inherit (h)
+    cfg
+    isPrimary
+    host
+    fqdn
+    mkIf
+    ;
   me = import ../me.nix;
 in
 {

@@ -10,23 +10,22 @@
       # is a common source of "Tailscale names work, the internet does not."
       #
       # In the Tailscale admin console leave "Override local DNS" off.
-      services.resolved =
-        {
-          enable = true;
-        }
-        // lib.optionalAttrs (options.services.resolved ? settings) {
-          settings.Resolve = {
-            FallbackDNS = [
-              "1.1.1.1"
-              "8.8.8.8"
-            ];
-          };
-        }
-        // lib.optionalAttrs (!(options.services.resolved ? settings)) {
-          fallbackDns = [
+      services.resolved = {
+        enable = true;
+      }
+      // lib.optionalAttrs (options.services.resolved ? settings) {
+        settings.Resolve = {
+          FallbackDNS = [
             "1.1.1.1"
             "8.8.8.8"
           ];
         };
+      }
+      // lib.optionalAttrs (!(options.services.resolved ? settings)) {
+        fallbackDns = [
+          "1.1.1.1"
+          "8.8.8.8"
+        ];
+      };
     };
 }

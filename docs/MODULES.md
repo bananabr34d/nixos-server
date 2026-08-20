@@ -3,6 +3,11 @@
 The book is these names, not the folders. Folders only *write into*
 the registry. Several files can merge into the same name.
 
+**import-tree skip rule:** any path under `modules/` that contains `/_`
+is not loaded as a flake-parts module. Put helpers there
+(`modules/nixos/_lib/foo.nix`) and `import` them from a real chapter.
+Gaétan Lepage’s public flake uses this heavily (`_utils`, `_keys`).
+
 How a machine is assembled:
 
 ```text

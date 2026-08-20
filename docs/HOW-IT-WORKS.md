@@ -29,8 +29,9 @@ internet.
 Same idea as the desktop flake: `lib/me.nix` is you, `flake.nix` is
 the shopping list, `modules/` is the recipe, `modules/hosts/<name>/`
 is one machine's disk and hostname. `import-tree` loads every file
-under `modules/`. `nixos-hosts.nix` is the factory that turns
-"primary exists" into `nixosConfigurations.primary`.
+under `modules/`. Paths containing `/_` are skipped (helpers you
+`import` yourself, not auto-loaded chapters). `nixos-hosts.nix` is
+the factory that turns "primary exists" into `nixosConfigurations.primary`.
 
 The only extra idea is **`homelab.role`**. One module
 (`homelab-apps`) reads that flag and either starts the apps or

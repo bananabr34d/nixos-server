@@ -3,6 +3,16 @@
 An extract, not a dump. The private lab this came from runs more
 services and knows more family names than a public template should.
 
+## import-tree `/_` skip, and treefmt as a flake check
+
+import-tree ignores any path containing `/_`. That is how Gaétan
+Lepage keeps `_utils` / `_keys` out of the chapter registry.
+
+Formatting is [treefmt-nix](https://github.com/numtide/treefmt-nix)
+(nixfmt, deadnix, statix): `nix fmt` / `just format`, and
+`nix flake check` fails if the tree is dirty (same idea as Gaétan
+and mightyiam).
+
 ## Hosts import `home-manager`, not `dev`
 
 The private flake (and an earlier draft of this template) used a

@@ -1,7 +1,17 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   h = import ../homelab.nix { inherit config pkgs lib; };
-  inherit (h) cfg isStandby syncoidFailureNotify mkIf;
+  inherit (h)
+    cfg
+    isStandby
+    syncoidFailureNotify
+    mkIf
+    ;
 in
 {
   config = mkIf isStandby {
