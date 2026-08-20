@@ -4,38 +4,19 @@
 
 Two computers, one job.
 
-The **primary** is the house server. It holds the photo library, the
-git websites, the shared folder, and (optionally) a cache of already
-built software so the next install is a download, not a compile.
+The **primary** is the house server. It holds the photo library, the git websites, the shared folder, and (optionally) a cache of already built software so the next install is a download, not a compile.
 
-The **standby** is a spare with the same *kind* of disks. Every night
-it asks the primary for a copy of the important ZFS datasets. It does
-not run Immich or Forgejo. That way a mistake on the spare cannot
-change the live library.
+The **standby** is a spare with the same *kind* of disks. Every night it asks the primary for a copy of the important ZFS datasets. It does not run Immich or Forgejo. That way a mistake on the spare cannot change the live library.
 
-If the primary dies, the data is already on the standby. Promoting is
-a deliberate step (see [ROLES.md](ROLES.md)), not an automatic
-failover. Automatic failover sounds brave and is how you get two
-primaries.
+If the primary dies, the data is already on the standby. Promoting is a deliberate step (see [ROLES.md](ROLES.md)), not an automatic failover. Automatic failover sounds brave and is how you get two primaries.
 
-They find each other on **Tailscale**, a private network. Caddy on
-the primary asks Tailscale for a certificate, so
-`https://primary.your-tailnet.ts.net/` is photos and
-`/git/` is Forgejo. You do not open those ports on the public
-internet.
+They find each other on **Tailscale**, a private network. Caddy on the primary asks Tailscale for a certificate, so `https://primary.your-tailnet.ts.net/` is photos and `/git/` is Forgejo. You do not open those ports on the public internet.
 
 ### The recipe book
 
-Same idea as the desktop flake: `lib/me.nix` is you, `flake.nix` is
-the shopping list, `modules/` is the recipe, `modules/hosts/<name>/`
-is one machine's disk and hostname. `import-tree` loads every file
-under `modules/`. Paths containing `/_` are skipped (helpers you
-`import` yourself, not auto-loaded chapters). `nixos-hosts.nix` is
-the factory that turns "primary exists" into `nixosConfigurations.primary`.
+Same idea as the desktop flake: `lib/me.nix` is you, `flake.nix` is the shopping list, `modules/` is the recipe, `modules/hosts/<name>/` is one machine's disk and hostname. `import-tree` loads every file under `modules/`. Paths containing `/_` are skipped (helpers you `import` yourself, not auto-loaded chapters). `nixos-hosts.nix` is the factory that turns "primary exists" into `nixosConfigurations.primary`.
 
-The only extra idea is **`homelab.role`**. One module
-(`homelab-apps`) reads that flag and either starts the apps or
-starts syncoid. You do not maintain two unrelated server configs.
+The only extra idea is **`homelab.role`**. One module (`homelab-apps`) reads that flag and either starts the apps or starts syncoid. You do not maintain two unrelated server configs.
 
 ## In Nix language
 
@@ -50,9 +31,7 @@ flake.nix
       → standby.nix is mkIf (role == "standby")
 ```
 
-`lib/homelab-modules/` sits *outside* `modules/` on purpose: those
-files are ordinary NixOS modules, not flake-parts fragments. That
-keeps `mkIf isPrimary` readable.
+`lib/homelab-modules/` sits *outside* `modules/` on purpose: those files are ordinary NixOS modules, not flake-parts fragments. That keeps `mkIf isPrimary` readable.
 
 The full registry (every `flake.modules.*` name) is [MODULES.md](MODULES.md).
 

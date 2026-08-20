@@ -1,12 +1,8 @@
 # Module registry
 
-The book is these names, not the folders. Folders only *write into*
-the registry. Several files can merge into the same name.
+The book is these names, not the folders. Folders only *write into* the registry. Several files can merge into the same name.
 
-**import-tree skip rule:** any path under `modules/` that contains `/_`
-is not loaded as a flake-parts module. Put helpers there
-(`modules/nixos/_lib/foo.nix`) and `import` them from a real chapter.
-Gaétan Lepage’s public flake uses this heavily (`_utils`, `_keys`).
+**import-tree skip rule:** any path under `modules/` that contains `/_` is not loaded as a flake-parts module. Put helpers there (`modules/nixos/_lib/foo.nix`) and `import` them from a real chapter. Gaétan Lepage’s public flake uses this heavily (`_utils`, `_keys`).
 
 How a machine is assembled:
 
@@ -37,8 +33,7 @@ flake.modules.nixos.core          # locale.nix
 flake.modules.nixos.core          # zram-swap.nix
 ```
 
-`sops` exists as `flake.modules.nixos.sops` but is **not** in `core`
-until you have a real `secrets/secrets.yaml`. See INSTALL.md.
+`sops` exists as `flake.modules.nixos.sops` but is **not** in `core` until you have a real `secrets/secrets.yaml`. See INSTALL.md.
 
 ## Optional NixOS chapters — host must import them
 
@@ -90,7 +85,4 @@ flake.modules.homeManager.core
   #   shell/{zsh,starship,atuin,eza,zoxide}.nix
 ```
 
-This template has no per-host `homeConfigurations/*` files. The shell
-still comes from `homeManager.core`. Add
-`flake.modules.homeManager."homeConfigurations/primary"` later if the
-primary needs extra packages the standby should not share.
+This template has no per-host `homeConfigurations/*` files. The shell still comes from `homeManager.core`. Add `flake.modules.homeManager."homeConfigurations/primary"` later if the primary needs extra packages the standby should not share.

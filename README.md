@@ -1,23 +1,12 @@
 # nixos-server
 
-A recipe for a small house server — and a second machine that quietly
-holds a copy.
+A recipe for a small house server — and a second machine that quietly holds a copy.
 
-In plain language: one computer runs the things you actually use
-(photos, a git website, a shared folder, a Nix binary cache). A second
-computer stays mostly idle and pulls a nightly copy of the important
-disks. If the first machine dies, you still have the data. You promote
-the second machine when you are ready; until then it does not run the
-apps, so you cannot accidentally write to both copies.
+In plain language: one computer runs the things you actually use (photos, a git website, a shared folder, a Nix binary cache). A second computer stays mostly idle and pulls a nightly copy of the important disks. If the first machine dies, you still have the data. You promote the second machine when you are ready; until then it does not run the apps, so you cannot accidentally write to both copies.
 
-The pair talks over **Tailscale** (a private network between your
-machines). HTTPS names come from Tailscale certificates. Disks that
-hold photos and git are **ZFS** mirrors: two drives, one pool, so one
-drive can fail without taking the library with it.
+The pair talks over **Tailscale** (a private network between your machines). HTTPS names come from Tailscale certificates. Disks that hold photos and git are **ZFS** mirrors: two drives, one pool, so one drive can fail without taking the library with it.
 
-This is a **template**. It is derived from a private homelab flake. It
-is not a drop-in for someone else's rack, and it does not include
-every service that house runs.
+This is a **template**. It is derived from a private homelab flake. It is not a drop-in for someone else's rack, and it does not include every service that house runs.
 
 **Host it lives under:** [cursor.com/codebase/truckstop/nixos-server](https://cursor.com/codebase/truckstop/nixos-server)
 
@@ -89,11 +78,7 @@ docs/
 
 ## Thanks
 
-Full list: [docs/THANKS.md](docs/THANKS.md). Short version: NixOS/nixpkgs,
-flake-parts, import-tree, home-manager, disko, sops-nix, ZFS on Linux,
-Harmonia, Tailscale, sanoid/syncoid, Immich, Forgejo, Caddy, ntfy —
-and the public configs (including wimpysworld's installer shape) that
-made a primary/standby pair feel obvious instead of heroic.
+Full list: [docs/THANKS.md](docs/THANKS.md). Short version: NixOS/nixpkgs, flake-parts, import-tree, home-manager, disko, sops-nix, ZFS on Linux, Harmonia, Tailscale, sanoid/syncoid, Immich, Forgejo, Caddy, ntfy — and the public configs (including wimpysworld's installer shape) that made a primary/standby pair feel obvious instead of heroic.
 
 ## More
 
