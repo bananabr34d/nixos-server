@@ -10,7 +10,9 @@ This repository is an arrangement of other people's work.
 ## The flake shape
 
 - **[flake-parts](https://github.com/hercules-ci/flake-parts)** (Robert Hensing / hercules-ci)
-- **[import-tree](https://github.com/vic/import-tree)** (vic)
+- **[The dendritic pattern](https://github.com/mightyiam/dendritic)** — Shahar “Dawn” Or ([@mightyiam](https://github.com/mightyiam)). Every non-entry file is a top-level module. Lived in at [mightyiam/infra](https://github.com/mightyiam/infra).
+- **[import-tree](https://github.com/vic/import-tree)** (Victor Borja, [@vic](https://github.com/vic)) — walk `modules/` and load every file. Vic’s config: [vix](https://github.com/vic/vix). Toolkit: [denful](https://denful.dev/) (formerly den.oeiuwq.com).
+- **[Gaétan Lepage](https://github.com/GaetanLepage/nix-config)** ([@GaetanLepage](https://github.com/GaetanLepage)) — dendritic NixOS with a NAS (`tank`) and replica (`backup`), the closest public cousin to this pair.
 - **[nix-systems](https://github.com/nix-systems/default)**
 
 ## Disks, secrets, deploy
