@@ -8,9 +8,9 @@ The pair talks over **Tailscale** (a private network between your machines). HTT
 
 This is a **template**. It is derived from a private homelab flake. It is not a drop-in for someone else's rack, and it does not include every service that house runs.
 
-**Host it lives under:** [cursor.com/codebase/truckstop/nixos-server](https://cursor.com/codebase/truckstop/nixos-server)
+**Host it lives under:** [github.com/bananabr34d/nixos-server](https://github.com/bananabr34d/nixos-server)
 
-Sister recipe: [nixos-desktop](https://cursor.com/codebase/truckstop/nixos-desktop) — a Niri + Noctalia laptop/desktop. Separate on purpose.
+Sister recipe: [nixos-desktop](https://github.com/bananabr34d/nixos-desktop) — a Niri + Noctalia laptop/desktop. Separate on purpose.
 
 ## What you get
 
